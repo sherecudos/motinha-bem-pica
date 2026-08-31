@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background-color: #111;
+}
+
+.cenario {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Fundo da Cidade em movimento infinito */
+.cidade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 70%;
+  /* Substitua "fundo.png" pelo nome da sua imagem de fundo */
+  background-image: url('bg.jpg');
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: repeat-x;
+  animation: moverCidade 5s linear infinite;
+}
+
+/* Pista */
+.estrada {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 30%;
+  background-color: #333;
+  border-top: 8px solid #555;
+  background-image: repeating-linear-gradient(90deg, #fff 0px, #fff 50px, transparent 50px, transparent 100px);
+  background-size: 200px 10px;
+  background-position: center;
+  background-repeat: repeat-x;
+  animation: moverEstrada 0.8s linear infinite;
+}
+
+/* Veículos usando imagens */
+.veiculo {
+  position: absolute;
+  bottom: 5%;
+  height: 100px; /* Ajuste a altura das imagens conforme necessário */
+  width: auto;
+  user-select: none;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+}
+
+.carro {
+  left: 15%;
+  animation: balancoVeiculo 0.3s ease-in-out infinite alternate;
+}
+
+.moto {
+  left: 45%;
+  animation: balancoVeiculo 0.25s ease-in-out infinite alternate;
+}
+
+/* Animações de Movimento Infinito */
+@keyframes moverCidade {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes moverEstrada {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-200px); }
+}
+
+@keyframes balancoVeiculo {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-3px); }
+}
